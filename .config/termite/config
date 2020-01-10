@@ -9,6 +9,7 @@ allow_bold = false
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
+cursor_shape = ibeam
 
 font = Hack 10
 scrollback_lines = 1000

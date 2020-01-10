@@ -1,2 +1,2 @@
 # dotfiles
-Settings for zsh, termite
+Personal settings

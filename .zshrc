@@ -15,25 +15,22 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' group-name ''
 zstyle ':completion:::::' completer _expand _complete _ignored _approximate
 
-# Antigen
-source ${HOME}/.zsh/antigen.zsh
-
-antigen bundle git
-antigen bundle heroku
-antigen bundle pip
-antigen bundle lein
-antigen bundle command-not-found
-
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-completions
-
-antigen theme geometry-zsh/geometry
-
-antigen apply
-
 # Sources
 source ${HOME}/.zsh/zsh_aliases.zsh
 source ${HOME}/.zsh/zsh_functions.zsh
 
 # Environment variables
-export PATH=$PATH
+# Empty cuz why not?
+
+# Prompt
+setopt PROMPT_SUBST
+
+autoload -Uz vcs_info
+zstyle ':vcs_info:git:*' formats 'on branch %b'
+
+NEWLINE=$'\n'
+PROMPT='%F{140}%n%f in %F{110}%~%f ${vcs_info_msg_0_}${NEWLINE}-> '
+
+# Home/End malfunction
+bindkey '^[[H' beginning-of-line
+bindkey '^[[F' end-of-line
